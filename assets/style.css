@@ -1,0 +1,48 @@
+h1 {
+    font-size: 24px;
+}
+
+.input-group {
+    width: 85%;
+}
+
+.main-contents {
+    padding:20px;
+}
+
+.search-sidebar {
+    padding-top:20px;
+    padding-bottom:20px;
+    padding-left:30px;
+    padding-right:20px;
+    background-color: #f8f9fa;
+   
+}
+
+.city-list {
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 5px;
+}
+
+.city-name
+{
+    font-size: 32px;
+}
+
+.fd-container {
+    margin-top: 5px;
+}
+
+.fd-card {
+    margin:5px;
+    background-color:#84d4ff;
+    padding:10px;
+    border-radius:7px;
+    width:150px;
+    color:white;
+}
+
+.fd-card h2 {
+    font-size: 18px;
+}

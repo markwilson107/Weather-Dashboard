@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <!--Icon library-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--<link rel="stylesheet" href="../offline/bootstrap.min.css" />-->
+    <!--Link style.css-->
+    <link rel="stylesheet" href="./assets/style.css" />
+    <title>Weather Dashboard</title>
+</head>
+
+<body>
+    <!--Navbar-->
+    <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand mb-0 h1 mx-auto">Weather Dashboard</span>
+    </nav>
+    <!--Container-->
+    <div class="conatiner">
+        <!--Row-->
+        <div class="row">
+            <!--Search Sidebar (Column 1)-->
+            <aside class="col-md-4 search-sidebar">
+                <h1>Search for a City:</h1>
+                <form class="input-group">
+                    <input id="citySearch" type="text" class="form-control" placeholder="City"
+                        aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button"><i class="fa fa-search"></i></button>
+                    </div>
+                </form>
+                <div class="list-group city-list">
+                    <a href="#" class="list-group-item list-group-item-action">Cras justo odio</a>
+                    <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+                    <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+                    <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+                    <a href="#" class="list-group-item list-group-item-action">Vestibulum at eros</a>
+                </div>
+            </aside>
+            <!--Main Contents (Column 2)-->
+            <main class="col-md-8 main-contents">
+                <!--Sub Row 1-->
+                <div class="row">
+                    <!--Current forecast-->
+                    <div class="col-12">
+                        <section class="card">
+                            <div class="card-body">
+                                <h1 class="city-name">Perth</h1>
+                                <p>Temperature: <span id="temp-span">200</span></p>
+                                <p>Humidity: <span id="humid-span">200</span></p>
+                                <p>Wind Speed: <span id="wind-span">200</span></p>
+                                <p>UV Index: <span id="uv-span">200</span></p>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <!--5 Day forecast container-->
+                <div class="container-fluid fd-container">
+                    <!--Row-->
+                    <div class="row justify-content-center">
+                        <div class="col-auto fd-card">
+                            <h2 class="fd-day-1">Wednesday</h2>
+                            <img>
+                            <p>Temp: <span class="fd-temp-1"></span></p>
+                            <p>Humidity: <span class="fd-humid-1"></span></p>
+                        </div>
+                        <div class="col-auto fd-card">
+                            <h2 class="fd-day-2">Wednesday</h2>
+                            <img>
+                            <p>Temp: <span class="fd-temp-2"></span></p>
+                            <p>Humidity: <span class="fd-humid-2"></span></p>
+                        </div>
+                        <div class="col-auto fd-card">
+                            <h2 class="fd-day-3">Wednesday</h2>
+                            <img>
+                            <p>Temp: <span class="fd-temp-3"></span></p>
+                            <p>Humidity: <span class="fd-humid-3"></span></p>
+                        </div>
+                        <div class="col-auto fd-card">
+                            <h2 class="fd-day-4">Wednesday</h2>
+                            <img>
+                            <p>Temp: <span class="fd-temp-4"></span></p>
+                            <p>Humidity: <span class="fd-humid-4"></span></p>
+                        </div>
+                        <div class="col-auto fd-card">
+                            <h2 class="fd-day-5">Wednesday</h2>
+                            <img>
+                            <p>Temp: <span class="fd-temp-5"></span></p>
+                            <p>Humidity: <span class="fd-humid-5"></span></p>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <!--Link JQuery-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!--Link script.js-->
+    <script src="./assets/script.js"></script>
+</body>
+
+</html>
