@@ -2,27 +2,22 @@ h1 {
     font-size: 24px;
 }
 
-.input-group {
-    width: 85%;
-}
-
 .main-contents {
     padding:20px;
 }
 
 .search-sidebar {
-    padding-top:20px;
-    padding-bottom:20px;
-    padding-left:30px;
-    padding-right:20px;
+    padding: 20px;
     background-color: #f8f9fa;
-   
+    height: calc(100vh - 60px);
+}
+
+.navbar {
+    height: 60px;
 }
 
 .city-list {
-    padding-left: 2px;
-    padding-right: 2px;
-    padding-top: 5px;
+    padding-top: 10px;
 }
 
 .city-name
@@ -45,4 +40,41 @@ h1 {
 
 .fd-card h2 {
     font-size: 18px;
+}
+
+.justify-content-center {
+    -ms-flex-pack:left!important;
+    justify-content:left!important;
+}
+
+.remove-btn {
+    float: right;
+    color:red;
+}
+.remove-btn a:link {
+    color: red;
+  }
+
+#cityCollapseBtn {
+    margin-left: 3px;
+    display: none;
+}
+
+@media screen and (max-width: 767px) {
+    .justify-content-center {
+        -ms-flex-pack:center!important;
+        justify-content:center!important;
+    }
+    .search-sidebar {
+        height: 100%;
+    }
+    #cityCollapseBtn {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 767px) {
+    #cityCollapse {
+        display: block;
+    }  
 }

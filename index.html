@@ -21,25 +21,31 @@
         <span class="navbar-brand mb-0 h1 mx-auto">Weather Dashboard</span>
     </nav>
     <!--Container-->
-    <div class="conatiner">
+    <div class="container-fluid">
         <!--Row-->
         <div class="row">
             <!--Search Sidebar (Column 1)-->
             <aside class="col-md-4 search-sidebar">
                 <h1>Search for a City:</h1>
                 <form class="input-group">
-                    <input id="citySearch" type="text" class="form-control" placeholder="City"
-                        aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <input id="citySearch" type="text" class="form-control" placeholder="City" aria-label="City"
+                        aria-describedby="basic-addon2">
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button"><i class="fa fa-search"></i></button>
+                        <button class="btn btn-outline-secondary" type="button" id="searchCityBtn"><i
+                                class="fa fa-search"></i></button>
                     </div>
+                    <button id="cityCollapseBtn" class="btn btn-outline-secondary" type="button">
+                        ...
+                    </button>
                 </form>
-                <div class="list-group city-list">
-                    <a href="#" class="list-group-item list-group-item-action">Cras justo odio</a>
-                    <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-                    <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
-                    <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-                    <a href="#" class="list-group-item list-group-item-action">Vestibulum at eros</a>
+                <div class="collapse" id="cityCollapse">
+                    <ul class="list-group city-list">
+                        <li class="list-group-item list-group-item-action">London</li>
+                        <li class="list-group-item list-group-item-action">Tokyo</li>
+                        <li class="list-group-item list-group-item-action">Paris</li>
+                        <li class="list-group-item list-group-item-action">Sydney</li>
+                        <li class="list-group-item list-group-item-action">Dubai</li>
+                    </ul>
                 </div>
             </aside>
             <!--Main Contents (Column 2)-->
@@ -50,7 +56,9 @@
                     <div class="col-12">
                         <section class="card">
                             <div class="card-body">
+                                <span class="remove-btn"><a href="">Remove</a></span>
                                 <h1 class="city-name">Perth</h1>
+
                                 <p>Temperature: <span id="temp-span">200</span></p>
                                 <p>Humidity: <span id="humid-span">200</span></p>
                                 <p>Wind Speed: <span id="wind-span">200</span></p>
@@ -61,7 +69,11 @@
                 </div>
                 <!--5 Day forecast container-->
                 <div class="container-fluid fd-container">
-                    <!--Row-->
+                    <!--Sub Row 2-->
+                    <div class="row">
+                        <h1>5-Day Forecast</h1>
+                    </div>
+                    <!--Sub Row 3-->
                     <div class="row justify-content-center">
                         <div class="col-auto fd-card">
                             <h2 class="fd-day-1">Wednesday</h2>
@@ -101,7 +113,13 @@
     </div>
 
     <!--Link JQuery-->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    <!--<script src="../offline/jquery-3.4.1.min.js"></script>-->
+    <!--<script src="../offline/bootstrap.min.js"></script>-->
     <!--Link script.js-->
     <script src="./assets/script.js"></script>
 </body>
