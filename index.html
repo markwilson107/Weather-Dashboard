@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!--Bootstrap-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <!--Icon library-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--<link rel="stylesheet" href="../offline/bootstrap.min.css" />-->
@@ -28,10 +29,9 @@
             <aside class="col-md-4 search-sidebar">
                 <h1>Search for a City:</h1>
                 <form class="input-group">
-                    <input id="citySearch" type="text" class="form-control" placeholder="City" aria-label="City"
-                        aria-describedby="basic-addon2">
+                    <input id="city-search" type="text" class="form-control" placeholder="City" >
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button" id="searchCityBtn"><i
+                        <button class="btn btn-outline-secondary" type="button" id="search-city-btn"><i
                                 class="fa fa-search"></i></button>
                     </div>
                     <button id="cityCollapseBtn" class="btn btn-outline-secondary" type="button">
@@ -39,7 +39,7 @@
                     </button>
                 </form>
                 <div class="collapse" id="cityCollapse">
-                    <ul class="list-group city-list">
+                    <ul id="city-list" class="list-group city-list">
                         <li class="list-group-item list-group-item-action">London</li>
                         <li class="list-group-item list-group-item-action">Tokyo</li>
                         <li class="list-group-item list-group-item-action">Paris</li>
@@ -57,12 +57,12 @@
                         <section class="card">
                             <div class="card-body">
                                 <span class="remove-btn"><a href="">Remove</a></span>
-                                <h1 class="city-name">Perth</h1>
+                                <h1 id="city-name" class="city-name">Perth</h1>
 
-                                <p>Temperature: <span id="temp-span">200</span></p>
-                                <p>Humidity: <span id="humid-span">200</span></p>
-                                <p>Wind Speed: <span id="wind-span">200</span></p>
-                                <p>UV Index: <span id="uv-span">200</span></p>
+                                <p>Temperature: <span id="temp-span"></span></p>
+                                <p>Humidity: <span id="humid-span"></span></p>
+                                <p>Wind Speed: <span id="wind-span"></span></p>
+                                <p>UV Index: <span id="uv-span"></span></p>
                             </div>
                         </section>
                     </div>
