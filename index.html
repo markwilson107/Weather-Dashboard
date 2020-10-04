@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
     <!--Icon library-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <!--<link rel="stylesheet" href="../offline/bootstrap.min.css" />-->
     <!--Link style.css-->
     <link rel="stylesheet" href="./assets/style.css" />
@@ -29,7 +29,7 @@
             <aside class="col-md-4 search-sidebar">
                 <h1>Search for a City:</h1>
                 <form class="input-group">
-                    <input id="city-search" type="text" class="form-control" placeholder="City" >
+                    <input id="city-search" type="text" class="form-control" placeholder="City">
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary" type="button" id="search-city-btn"><i
                                 class="fa fa-search"></i></button>
@@ -40,11 +40,6 @@
                 </form>
                 <div class="collapse" id="cityCollapse">
                     <ul id="city-list" class="list-group city-list">
-                        <li class="list-group-item list-group-item-action">London</li>
-                        <li class="list-group-item list-group-item-action">Tokyo</li>
-                        <li class="list-group-item list-group-item-action">Paris</li>
-                        <li class="list-group-item list-group-item-action">Sydney</li>
-                        <li class="list-group-item list-group-item-action">Dubai</li>
                     </ul>
                 </div>
             </aside>
@@ -58,11 +53,11 @@
                             <div class="card-body">
                                 <span class="remove-btn"><a href="">Remove</a></span>
                                 <h1 id="city-name" class="city-name">Perth</h1>
-
-                                <p>Temperature: <span id="temp-span"></span></p>
-                                <p>Humidity: <span id="humid-span"></span></p>
-                                <p>Wind Speed: <span id="wind-span"></span></p>
-                                <p>UV Index: <span id="uv-span"></span></p>
+                                <div class="weather-icon"><img id="weather-icon" src="" alt="Weather icon"></div>
+                                <p>Temperature:&nbsp;&nbsp;<span id="temp-span"></span></p>
+                                <p>Humidity:&nbsp;&nbsp;<span id="humid-span"></span></p>
+                                <p>Wind Speed:&nbsp;&nbsp;<span id="wind-span"></span></p>
+                                <p>UV Index:&nbsp;&nbsp;<span id="uv-span"></span></p>
                             </div>
                         </section>
                     </div>
@@ -76,38 +71,37 @@
                     <!--Sub Row 3-->
                     <div class="row justify-content-center">
                         <div class="col-auto fd-card">
-                            <h2 class="fd-day-1">Wednesday</h2>
-                            <img>
+                            <h2 class="fd-day-1">Monday</h2>
+                            <div class="fd-img"><img id="fd-img-1" src="" alt="Forecast image"></div>
                             <p>Temp: <span class="fd-temp-1"></span></p>
                             <p>Humidity: <span class="fd-humid-1"></span></p>
                         </div>
                         <div class="col-auto fd-card">
-                            <h2 class="fd-day-2">Wednesday</h2>
-                            <img>
+                            <h2 class="fd-day-2">Tuesday</h2>
+                            <div class="fd-img"><img id="fd-img-2" src="" alt="Forecast image"></div>
                             <p>Temp: <span class="fd-temp-2"></span></p>
                             <p>Humidity: <span class="fd-humid-2"></span></p>
                         </div>
                         <div class="col-auto fd-card">
                             <h2 class="fd-day-3">Wednesday</h2>
-                            <img>
+                            <div class="fd-img"><img id="fd-img-3" src="" alt="Forecast image"></div>
                             <p>Temp: <span class="fd-temp-3"></span></p>
                             <p>Humidity: <span class="fd-humid-3"></span></p>
                         </div>
                         <div class="col-auto fd-card">
-                            <h2 class="fd-day-4">Wednesday</h2>
-                            <img>
+                            <h2 class="fd-day-4">Thursday</h2>
+                            <div class="fd-img"><img id="fd-img-4" src="" alt="Forecast image"></div>
                             <p>Temp: <span class="fd-temp-4"></span></p>
                             <p>Humidity: <span class="fd-humid-4"></span></p>
                         </div>
                         <div class="col-auto fd-card">
-                            <h2 class="fd-day-5">Wednesday</h2>
-                            <img>
+                            <h2 class="fd-day-5">Friday</h2>
+                            <div class="fd-img"><img id="fd-img-5" src="" alt="Forecast image"></div>
                             <p>Temp: <span class="fd-temp-5"></span></p>
                             <p>Humidity: <span class="fd-humid-5"></span></p>
                         </div>
                     </div>
                 </div>
-
             </main>
         </div>
     </div>

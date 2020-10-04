@@ -3,7 +3,7 @@ h1 {
 }
 
 .main-contents {
-    padding:20px;
+    padding: 20px;
 }
 
 .search-sidebar {
@@ -20,8 +20,7 @@ h1 {
     padding-top: 10px;
 }
 
-.city-name
-{
+.city-name {
     font-size: 32px;
 }
 
@@ -30,16 +29,24 @@ h1 {
 }
 
 .fd-card {
-    margin:5px;
-    background-color:#84d4ff;
-    padding:10px;
-    border-radius:7px;
-    width:150px;
-    color:white;
+    margin: 5px;
+    background-color: #19a3ff;
+    padding: 10px;
+    border-radius: 7px;
+    width: 150px;
+    color: white;
 }
 
 .fd-card h2 {
     font-size: 18px;
+}
+
+.fd-img {
+    height: 48px;
+}
+
+.list-group-item {
+    cursor: pointer;
 }
 
 .justify-content-center {
@@ -49,15 +56,23 @@ h1 {
 
 .remove-btn {
     float: right;
-    color:red;
 }
-.remove-btn a:link {
-    color: red;
-  }
+
+.weather-icon {
+    height: 50px;
+}
 
 #cityCollapseBtn {
     margin-left: 3px;
     display: none;
+}
+
+#uv-span {
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 1px;
+    padding-bottom: 2px;
+    border-radius: 7px;
 }
 
 @media screen and (max-width: 767px) {
