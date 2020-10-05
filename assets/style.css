@@ -9,7 +9,7 @@ h1 {
 .search-sidebar {
     padding: 20px;
     background-color: #f8f9fa;
-    height: calc(100vh - 60px);
+    min-height: calc(100vh - 60px);
 }
 
 .navbar {
@@ -54,10 +54,6 @@ h1 {
     justify-content:left!important;
 }
 
-.remove-btn {
-    float: right;
-}
-
 .weather-icon {
     height: 50px;
 }
@@ -77,11 +73,11 @@ h1 {
 
 @media screen and (max-width: 767px) {
     .justify-content-center {
-        -ms-flex-pack:center!important;
-        justify-content:center!important;
+        -ms-flex-pack: center!important;
+        justify-content: center!important;
     }
     .search-sidebar {
-        height: 100%;
+        min-height: 100%;
     }
     #cityCollapseBtn {
         display: block;

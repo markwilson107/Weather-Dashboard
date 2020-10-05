@@ -27,7 +27,7 @@ function loadCity(cityName, AddHistory) {
         success: function (data) {
             $("#city-name").text(data.name);
             $("#temp-span").text(Math.floor(data.main.temp) + "\u00B0C");
-            $("#humid-span").text(data.main.humidity);
+            $("#humid-span").text(data.main.humidity + "%");
             $("#wind-span").text(data.wind.speed + "m/sec");
             //loads UV index
             loadUV(data.coord.lat, data.coord.lon);
@@ -53,7 +53,7 @@ function loadUV(lat, lon) {
         url: url,
         method: "GET",
     }).then(function (res) {
-        var uvI = res.value;
+        var uvI = Math.round(res.value * 10) / 10
         $("#uv-span").text(uvI);
         // UV color
         if (uvI <= 2.4) {
@@ -81,7 +81,6 @@ function loadUV(lat, lon) {
             $("#uv-span").css({ backgroundColor: "darkviolet" });
             $("#uv-span").css({ color: "white" });
         }
-
     });
 }
 
@@ -91,20 +90,27 @@ function loadFDay(cityName) {
     $.ajax({
         url: url,
         success: function (data) {
+            var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            var currentDate = moment.utc(data.list[0].dt * 1000);
+            console.log(currentDate.day());
+            var counter = 1;
             $.each(data.list, function (index, val) {
-                var date = new Date(data.list[index].dt * 1000);
-                var dateHour = date.getHours();
-                var dateDay = date.getDay();
-                if (date.getDay() !== 0 && dateHour === 14) {
-                    var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                var date = moment.utc(data.list[index].dt * 1000); 
+                var dateHour = parseInt(date.format('HH'));
+                //console.log(date);
+                var dateDay = date.day();
+                console.log(dateDay);
+                if (dateDay !== currentDate.day() && dateHour === 12) {
+                    console.log(parseInt(dateHour));
                     var dayName = days[dateDay];
-                    $(".fd-day-" + dateDay).text(dayName);
-                    $(".fd-temp-" + dateDay).text(Math.floor(val.main.temp) + "\u00B0C");
-                    $(".fd-humid-" + dateDay).text(Math.floor(val.main.humidity));
-                    $('#fd-img-' + dateDay).attr('src', `http://openweathermap.org/img/w/${val.weather[0].icon}.png`);
+                    $(".fd-day-" + counter).text(dayName);
+                    $(".fd-temp-" + counter).text(Math.floor(val.main.temp) + "\u00B0C");
+                    $(".fd-humid-" + counter).text(Math.floor(val.main.humidity) + "%");
+                    $('#fd-img-' + counter).attr('src', `http://openweathermap.org/img/w/${val.weather[0].icon}.png`);
+                    //console.log(val.weather[0]);
+                    counter++;
                 }
             })
-
         },
         error: function (e) {
             console.log(e.responseText);
@@ -139,6 +145,9 @@ function refreshSearchHistory() {
         $("#city-list").append(newLi);
     }
 }
+
+function convertDateToUTC(date) { 
+    return new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds()); }
 
 // ---Checks for user history in local storage---
 if (localStorage.getItem("userCities") !== null) {
