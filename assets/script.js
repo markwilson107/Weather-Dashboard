@@ -1,5 +1,6 @@
 // ---Variables---
 var searchedCities = [];
+var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
 // ---City search---
 // Prevents page from refreshing when enter is pressed
@@ -90,25 +91,47 @@ function loadFDay(cityName) {
     $.ajax({
         url: url,
         success: function (data) {
-            var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-            var currentDate = moment.utc(data.list[0].dt * 1000);
-            console.log(currentDate.day());
-            var counter = 1;
+            // reset variables
+            var tempArray = [];
+            var hourCounter = 0;
+            var dayCounter = moment(data.list[0].dt_txt).day();
+            //if (dayCounter > 6) {
+                // loops back to 0
+              //  dayCounter = 0;
+            //}
+            var counter = 0;
+            // search all weather list items
             $.each(data.list, function (index, val) {
-                var date = moment.utc(data.list[index].dt * 1000); 
-                var dateHour = parseInt(date.format('HH'));
-                //console.log(date);
-                var dateDay = date.day();
-                console.log(dateDay);
-                if (dateDay !== currentDate.day() && dateHour === 12) {
-                    console.log(parseInt(dateHour));
-                    var dayName = days[dateDay];
+                var date = moment(data.list[index].dt_txt);
+                var day = date.day();
+                // check what day we are currently in
+                if (day === dayCounter) {
+                    // adds all temps from that day to tempArray[]
+                    tempArray.push(val.main.temp);
+                }
+                else {
+                    // WHEN day has changed
+                    // THEN find the index of highest temp in the day
+                    var iMax = indexOfMax(tempArray);
+                    var realIndex = hourCounter + iMax;
+                    var dayName = days[dayCounter];
+                    // added weather data to html elements
                     $(".fd-day-" + counter).text(dayName);
-                    $(".fd-temp-" + counter).text(Math.floor(val.main.temp) + "\u00B0C");
-                    $(".fd-humid-" + counter).text(Math.floor(val.main.humidity) + "%");
-                    $('#fd-img-' + counter).attr('src', `http://openweathermap.org/img/w/${val.weather[0].icon}.png`);
-                    //console.log(val.weather[0]);
+                    $(".fd-temp-" + counter).text(Math.floor(data.list[realIndex].main.temp) + "\u00B0C");
+                    $(".fd-humid-" + counter).text(Math.floor(data.list[realIndex].main.humidity) + "%");
+                    $('#fd-img-' + counter).attr('src', `http://openweathermap.org/img/w/${data.list[realIndex].weather[0].icon}.png`);
                     counter++;
+                    // checks if the day has exceeded the week count
+                    if (dayCounter <= 6) {
+                        dayCounter++;
+                    }
+                    else {
+                        // loops back to 0
+                        dayCounter = 0;
+                    }
+                    hourCounter += tempArray.length;
+                    tempArray = [];
+                    tempArray.push(val.main.temp);
                 }
             })
         },
@@ -146,8 +169,21 @@ function refreshSearchHistory() {
     }
 }
 
-function convertDateToUTC(date) { 
-    return new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds()); }
+// --IndexOfMax used in 5-day forecast
+function indexOfMax(arr) {
+    if (arr.length === 0) {
+        return -1;
+    }
+    var max = arr[0];
+    var maxIndex = 0;
+    for (var i = 1; i < arr.length; i++) {
+        if (arr[i] > max) {
+            maxIndex = i;
+            max = arr[i];
+        }
+    }
+    return maxIndex;
+}
 
 // ---Checks for user history in local storage---
 if (localStorage.getItem("userCities") !== null) {
