@@ -5,4 +5,4 @@ This application was created using Bootstrap.css, Jquery.js and Moment.js
 
 Deployed Application: https://markwilson107.github.io/Weather-Dashboard/
 
-![Image of Application](https://github.com/markwilson107/Work-Day-Scheduler/blob/master/assets/Deployed%20Application.png)
+![Image of Application](https://github.com/markwilson107/Weather-Dashboard/blob/master/assets/Deployed%20Application.png)
