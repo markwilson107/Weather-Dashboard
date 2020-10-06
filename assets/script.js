@@ -39,7 +39,7 @@ function loadCity(cityName, AddHistory) {
             }
             //gets icon image
             var iconcode = data.weather[0].icon;
-            $('#weather-icon').attr('src', `http://openweathermap.org/img/w/${iconcode}.png`);
+            $('#weather-icon').attr('src', `https://openweathermap.org/img/w/${iconcode}.png`);
         },
         error: function (e) {
             console.log(e.responseText);
@@ -119,7 +119,7 @@ function loadFDay(cityName) {
                     $(".fd-day-" + counter).text(dayName);
                     $(".fd-temp-" + counter).text(Math.floor(data.list[realIndex].main.temp) + "\u00B0C");
                     $(".fd-humid-" + counter).text(Math.floor(data.list[realIndex].main.humidity) + "%");
-                    $('#fd-img-' + counter).attr('src', `http://openweathermap.org/img/w/${data.list[realIndex].weather[0].icon}.png`);
+                    $('#fd-img-' + counter).attr('src', `https://openweathermap.org/img/w/${data.list[realIndex].weather[0].icon}.png`);
                     counter++;
                     // checks if the day has exceeded the week count
                     if (dayCounter <= 6) {
