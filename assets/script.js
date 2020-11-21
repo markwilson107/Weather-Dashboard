@@ -22,7 +22,7 @@ $("#search-city-btn").on("click", function (e) {
 
 // ---Loads city weather---
 function loadCity(cityName, AddHistory) {
-    var url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=256b25d2b8a8f2b130f652e84d69f8ee`;
+    var url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=db9bd5c5afe7227752152fd60b6e4d77`;
     $.ajax({
         url: url,
         success: function (data) {
@@ -49,7 +49,7 @@ function loadCity(cityName, AddHistory) {
 
 // ---Loads UV index---
 function loadUV(lat, lon) {
-    var url = `https://api.openweathermap.org/data/2.5/uvi?appid=256b25d2b8a8f2b130f652e84d69f8ee&lat=${lat}&lon=${lon}`;
+    var url = `https://api.openweathermap.org/data/2.5/uvi?appid=db9bd5c5afe7227752152fd60b6e4d77&lat=${lat}&lon=${lon}`;
     $.ajax({
         url: url,
         method: "GET",
@@ -87,7 +87,7 @@ function loadUV(lat, lon) {
 
 // ---Loads 5-day forecast---
 function loadFDay(cityName) {
-    var url = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=metric&appid=256b25d2b8a8f2b130f652e84d69f8ee`;
+    var url = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=metric&appid=db9bd5c5afe7227752152fd60b6e4d77`;
     $.ajax({
         url: url,
         success: function (data) {
